@@ -14,6 +14,6 @@ export const EMPs: { [networkId: number]: string[] } = {
     "0xA000Dfe84A1852865d5231e0F6CBF0De08888abE", // uUSDrBTC Kovan Oct20
     "0x10E3866b5F52d847F24aaAA14BcAd22b74CC14e2", // uUSDrBTC Kovan Nov20
     "0x3d7d563F4679C750e462Eae4271d2bd84dF66060", // uUSDrETH Kovan Nov20
-    "0xE57DcDf729E851d68a1B8b71E84BA43B1071456b", // Testing uGas Add
+    "0xE57DcDf729E851d68a1B8b71E84BA43B1071456b", // uGas-DEC Kovan
   ],
 };
