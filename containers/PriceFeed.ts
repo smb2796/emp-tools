@@ -17,9 +17,16 @@ function usePriceFeed() {
   const queryPrice = async () => {
     setLatestPrice(null);
 
+    //LOG OUT HERE
+    console.log(`tokenSymbol: ${tokenSymbol}`);
     if (tokenSymbol) {
+      console.log(`tokenSymbol: ${tokenSymbol}`);
       const query = await getOffchainPriceFromTokenSymbol(tokenSymbol);
+      console.log(`query: ${query}`);
       setLatestPrice(query);
+      console.log(
+        `pricefeedparams: ${getPricefeedParamsFromTokenSymbol(tokenSymbol)}`
+      );
       setSource(getPricefeedParamsFromTokenSymbol(tokenSymbol)?.source);
     }
   };
