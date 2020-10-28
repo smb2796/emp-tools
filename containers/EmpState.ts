@@ -59,6 +59,8 @@ const useContractState = () => {
 
   // get state from EMP
   const queryState = async () => {
+    console.log("emp");
+    console.log(emp);
     if (emp === null) {
       setState(initState);
     }
