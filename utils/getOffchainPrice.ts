@@ -31,7 +31,7 @@ function _getBitstampPriceFromJSON(jsonData: any) {
 }
 
 function _getEtherchainPriceFromJSON(jsonData: any) {
-  return Number(jsonData.standard / 1000000000000000000);
+  return Number(jsonData.standard / 1000);
 }
 // This function returns a type predicate that we can use to filter prices from a (number | null)[] into a number[],
 // source: https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards
