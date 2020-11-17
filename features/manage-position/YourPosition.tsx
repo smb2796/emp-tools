@@ -123,20 +123,23 @@ const YourPosition = () => {
   ) {
     return (
       <Container>
-        <Grid container spacing={4}>
-          <Grid item md={6} xs={12}>
+        <Grid container spacing={3}>
+          <Grid xs={12}>
             <Typography variant="h5">Your Position</Typography>
-            <Status>
+            <Status variant="h6">
               <Label>Collateral supplied: </Label>
               {`${_collateral} ${_collSymbol}`}
             </Status>
-            <Status>
-              <Label>Collateral backing debt: </Label>
-              {`${_backingCollateral} ${_collSymbol}`}
-            </Status>
-            <Status>
+            <Status variant="h6">
               <Label>Token debt: </Label>
               {`${_tokens} ${_tokenSymbol}`}
+            </Status>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <Status>
+              <Typography variant="h5">Position Info</Typography>
+              <Label>Collateral backing debt: </Label>
+              {`${_backingCollateral} ${_collSymbol}`}
             </Status>
             <Status>
               <Label>Collateral ratio (CR): </Label>
