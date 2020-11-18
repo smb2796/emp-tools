@@ -23,6 +23,7 @@ import AllPositions from "../features/all-positions/AllPositions";
 import Weth from "../features/weth/Weth";
 import Yield from "../features/yield/Yield";
 import Analytics from "../features/analytics/Analytics";
+import GasAnalytics from "../features/gas-analytics/GasAnalytics";
 
 import EmpAddress from "../containers/EmpAddress";
 import Collateral from "../containers/Collateral";
@@ -30,6 +31,7 @@ import Token from "../containers/Token";
 import WethContract from "../containers/WethContract";
 
 import { YIELD_TOKENS } from "../constants/yieldTokens";
+import { GAS_TOKENS } from "../constants/gasTokens";
 
 import GitHubIcon from "@material-ui/icons/GitHub";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -65,6 +67,10 @@ export default function Index() {
     tokenAddress &&
     Object.keys(YIELD_TOKENS).includes(tokenAddress.toLowerCase());
 
+  const isGasToken =
+    tokenAddress &&
+    Object.keys(GAS_TOKENS).includes(tokenAddress.toLowerCase());
+
   const buildOptionsList = () => {
     // Default list that all contracts have.
     let menuOptions = ["General Info", "Manage Position", "All Positions"];
@@ -78,6 +84,10 @@ export default function Index() {
       menuOptions = menuOptions.concat(["yUSD Yield", "Analytics"]);
     }
 
+    if (isGasToken) {
+      menuOptions = menuOptions.concat(["Gas Prices"]);
+    }
+
     // Update selected page if the user toggles between EMPs while selected on
     // invalid pages (i.e on Wrap/Unwrap then moves to uUSDrBTC).
     if (menuOptions.indexOf(selectedMenuItem) == -1) {
@@ -88,7 +98,14 @@ export default function Index() {
 
   useEffect(() => {
     setOptions(buildOptionsList());
-  }, [empAddress, weth, collAddress, isYieldToken, selectedMenuItem]);
+  }, [
+    empAddress,
+    weth,
+    collAddress,
+    isYieldToken,
+    selectedMenuItem,
+    isGasToken,
+  ]);
 
   const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -194,6 +211,7 @@ export default function Index() {
         {selectedMenuItem === "yUSD Yield" && <Yield />}
         {selectedMenuItem === "Wrap/Unwrap WETH" && <Weth />}
         {selectedMenuItem === "Analytics" && <Analytics />}
+        {selectedMenuItem === "Gas Prices" && <GasAnalytics />}
       </Box>
       <Box py={4} textAlign="center">
         <IconButton
