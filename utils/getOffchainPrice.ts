@@ -92,7 +92,7 @@ export function getPricefeedParamsFromTokenSymbol(symbol: string | null) {
       return PRICEFEED_PARAMS.usdeth;
     case symbol?.includes("yUSD"):
       return PRICEFEED_PARAMS.usdeth;
-    case symbol?.includes("uGas"):
+    case symbol?.includes("uGAS"):
       return PRICEFEED_PARAMS.gaseth;
     default:
       return null;
