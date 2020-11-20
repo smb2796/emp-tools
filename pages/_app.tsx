@@ -22,6 +22,7 @@ import DvmState from "../containers/DvmState";
 
 import { ApolloProvider } from "@apollo/client";
 import { client } from "../apollo/client";
+import HistoricalPrices from "../containers/HistoricalPrices";
 
 interface IProps {
   children: React.ReactNode;
@@ -37,21 +38,23 @@ const WithStateContainerProviders = ({ children }: IProps) => (
               <Token.Provider>
                 <Collateral.Provider>
                   <PriceFeed.Provider>
-                    <EmpSponsors.Provider>
-                      <Totals.Provider>
-                        <Etherscan.Provider>
-                          <Position.Provider>
-                            <Balancer.Provider>
-                              <DvmContracts.Provider>
-                                <DvmState.Provider>
-                                  {children}
-                                </DvmState.Provider>
-                              </DvmContracts.Provider>
-                            </Balancer.Provider>
-                          </Position.Provider>
-                        </Etherscan.Provider>
-                      </Totals.Provider>
-                    </EmpSponsors.Provider>
+                    <HistoricalPrices.Provider>
+                      <EmpSponsors.Provider>
+                        <Totals.Provider>
+                          <Etherscan.Provider>
+                            <Position.Provider>
+                              <Balancer.Provider>
+                                <DvmContracts.Provider>
+                                  <DvmState.Provider>
+                                    {children}
+                                  </DvmState.Provider>
+                                </DvmContracts.Provider>
+                              </Balancer.Provider>
+                            </Position.Provider>
+                          </Etherscan.Provider>
+                        </Totals.Provider>
+                      </EmpSponsors.Provider>
+                    </HistoricalPrices.Provider>
                   </PriceFeed.Provider>
                 </Collateral.Provider>
               </Token.Provider>

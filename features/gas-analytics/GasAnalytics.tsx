@@ -3,8 +3,8 @@ import { Box, Typography } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import styled from "styled-components";
 
-import CurrentSponsorsCollateralRatio from "./CurrentSponsorsCollateralRatio";
-import CurrentLiquidityProviders from "./CurrentLiquidityProviders";
+import HistoricalTwapPricesGraph from "./HistoricalTwapPricesGraph";
+import HistoricalGasPricesGraph from "./HistoricalGasPricesGraph";
 
 import Connection from "../../containers/Connection";
 import Token from "../../containers/Token";
@@ -38,10 +38,7 @@ const GasAnalytics = () => {
     return (
       <Box py={2}>
         <Typography>
-          <i>
-            Please first connect to Mainnet, and then select a yield token (i.e.
-            yUSD).
-          </i>
+          <i>Please first connect to a network, and then select a gas token.</i>
         </Typography>
       </Box>
     );
@@ -65,14 +62,14 @@ const GasAnalytics = () => {
         {dialogTabIndex === "gas-twohour-analytics" && (
           <Box py={2}>
             <OutlinedContainer>
-              <CurrentSponsorsCollateralRatio />
+              <HistoricalTwapPricesGraph />
             </OutlinedContainer>
           </Box>
         )}
         {dialogTabIndex === "median-gas-analytics" && (
           <Box py={2}>
             <OutlinedContainer>
-              <CurrentLiquidityProviders />
+              <HistoricalGasPricesGraph />
             </OutlinedContainer>
           </Box>
         )}

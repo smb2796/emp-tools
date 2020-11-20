@@ -137,7 +137,7 @@ const GeneralInfo = () => {
         </Status>
 
         <Status>
-          <Label>Identifier price: </Label>
+          <Label>Identifier price in ETH: </Label>
           {`${prettyLatestPrice}`}
         </Status>
 
@@ -153,6 +153,7 @@ const GeneralInfo = () => {
               >
                 {(index === 0 ? " [" : "") +
                   ((url.includes("coinbase") && "Coinbase") ||
+                    (url.includes("ugasdata") && "uGasData") ||
                     (url.includes("kraken") && "Kraken") ||
                     (url.includes("binance") && "Binance") ||
                     (url.includes("bitstamp") && "Bitstamp") ||

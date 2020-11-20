@@ -16,7 +16,7 @@ const prettyAddress = (x: string) => {
   return x.substr(0, 4) + "..." + x.substr(x.length - 4, x.length);
 };
 
-const CurrentSponsorsCollateralRatio = () => {
+const HistoricalTwapPricesGraph = () => {
   const { empState } = EmpState.useContainer();
   const { priceIdentifier: priceId } = empState;
   const { symbol: collSymbol } = Collateral.useContainer();
@@ -100,9 +100,9 @@ const CurrentSponsorsCollateralRatio = () => {
           },
         },
         plotOptions: {
-          bar: {
-            columnWidth: Number(prettyLatestPrice) / 3, // scale the column width as a function of price.
-          },
+          //   bar: {
+          //     columnWidth: Number(prettyLatestPrice) / 3, // scale the column width as a function of price.
+          //   },
         },
         dataLabels: {
           enabled: false,
@@ -140,7 +140,7 @@ const CurrentSponsorsCollateralRatio = () => {
         <Chart
           options={plotConfig.options}
           series={plotConfig.series}
-          type="bar"
+          type="line"
           height={550}
         />
       </span>
@@ -154,4 +154,4 @@ const CurrentSponsorsCollateralRatio = () => {
   }
 };
 
-export default CurrentSponsorsCollateralRatio;
+export default HistoricalTwapPricesGraph;

@@ -3,5 +3,5 @@ interface gasToken {
 }
 
 export const GAS_TOKENS: gasToken = {
-  "0x7e16320B61B01ff20A35C37bC15ED0d1d89437F0": "uGasKovan",
+  "0x7e16320b61b01ff20a35c37bc15ed0d1d89437f0": "uGasKovan",
 };
