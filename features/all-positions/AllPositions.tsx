@@ -4,7 +4,6 @@ import { utils } from "ethers";
 
 import EmpState from "../../containers/EmpState";
 import PriceFeed from "../../containers/PriceFeed";
-import HistoricalPrices from "../../containers/HistoricalPrices";
 import Token from "../../containers/Token";
 import { isPricefeedInvertedFromTokenSymbol } from "../../utils/getOffchainPrice";
 
@@ -15,7 +14,6 @@ const AllPositions = () => {
   const { empState } = EmpState.useContainer();
   const { priceIdentifier: priceId } = empState;
   const { latestPrice } = PriceFeed.useContainer();
-  const { gasHistory, twapHistory } = HistoricalPrices.useContainer();
   const { symbol } = Token.useContainer();
 
   const [showLiquidations, setShowLiquidations] = useState<boolean>(false);
@@ -24,10 +22,6 @@ const AllPositions = () => {
   };
 
   if (latestPrice !== null && priceId !== null && symbol !== null) {
-    console.log(`gasHistory:`);
-    console.log(gasHistory);
-    // console.log(`twapHistory:`);
-    // console.log(twapHistory);
     const priceIdUtf8 = utils.parseBytes32String(priceId);
     const invertedPrice = isPricefeedInvertedFromTokenSymbol(symbol);
     const prettyLatestPrice =

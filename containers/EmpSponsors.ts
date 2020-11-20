@@ -71,16 +71,11 @@ const useEmpSponsors = () => {
   const { decimals: collDecs } = Collateral.useContainer();
   const { symbol: tokenSymbol } = Token.useContainer();
 
-  console.log(`network: ${network}`);
-
   const subgraphToQuery = `UMA${network?.chainId.toString()}`;
-  console.log(`subgraphToQuery: ${subgraphToQuery}`);
   const { loading, error, data } = useQuery(EMP_DATA, {
     context: { clientName: subgraphToQuery },
     pollInterval: 10000,
   });
-  console.log(`loading: ${loading}`);
-  console.log(data);
 
   const getCollateralRatio = (
     collateral: number,
@@ -116,7 +111,6 @@ const useEmpSponsors = () => {
           (contract: FinancialContractQuery) =>
             utils.getAddress(contract.id) === emp.address
         );
-        console.log(`empData: ${empData}`);
 
         if (empData) {
           let newPositions: SponsorMap = {};

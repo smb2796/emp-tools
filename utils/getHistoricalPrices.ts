@@ -6,7 +6,6 @@ interface PricefeedParams {
   source: string[];
 }
 
-console.log("in getHistoricalPrices");
 interface PricefeedParamsMap {
   [identifier: string]: PricefeedParams;
 }
@@ -66,7 +65,6 @@ export const getHistoricalPrices = async (
   symbol: string,
   queryType: string
 ) => {
-  console.log("in getHistoricalPrices function");
   let identifierParams = getPricefeedParamsFromTokenSymbol(queryType);
   if (identifierParams === null) {
     console.error(
@@ -74,7 +72,7 @@ export const getHistoricalPrices = async (
     );
     return null;
   } else {
-    const prices: (number | null)[] = await Promise.all(
+    const prices: (any | null)[] = await Promise.all(
       identifierParams.source.map(async (url: string) => {
         try {
           const response = await fetch(url);
@@ -99,7 +97,7 @@ export const getHistoricalPrices = async (
     );
 
     const validPrices = prices.filter(isValidPrice);
-    console.log(`validPrices: ${validPrices}`);
+
     if (validPrices.length > 0) {
       // Sort in ascending order (lowest first), and return the median index.
       // const mid = Math.floor(validPrices.length / 2);
@@ -117,7 +115,9 @@ export const getHistoricalPrices = async (
       // } else {
       //   return medianPrice;
       // }
-      return validPrices;
+      if (validPrices[0].length > 0) {
+        return validPrices[0];
+      }
     } else {
       return null;
     }
