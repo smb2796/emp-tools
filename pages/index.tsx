@@ -173,7 +173,8 @@ export default function Index() {
           <>
             <Blurb>
               <Typography>
-                The Expiring Multi Party (EMP) is{" "}
+                The uGAS token is built by uLABS using the Expiring Multi Party
+                (EMP) which is{" "}
                 <a
                   href="https://umaproject.org/"
                   target="_blank"
@@ -181,10 +182,12 @@ export default function Index() {
                 >
                   UMA
                 </a>
-                's most current financial smart contract template. This UI is a
-                community-made tool to make interfacing with the protocol
-                easier, please use at your own risk. The source code can be
-                viewed{" "}
+                's most current financial smart contract template. The uGAS
+                token can be used for hedging or speculating on Ethereum gas
+                prices. This is an experimental token, please use at your own
+                risk. Please read the uGAS medium article for general
+                information and view the source code here. The source code can
+                be viewed{" "}
                 <a
                   href="https://github.com/UMAprotocol/emp-tools"
                   target="_blank"

@@ -132,6 +132,11 @@ const AllSponsors = () => {
     }
   }, [activeSponsors]);
 
+  console.log(`tokenSymbol: ${tokenSymbol}`);
+  console.log(`collSymbol: ${collSymbol}`);
+  console.log(`priceId: ${priceId}`);
+  console.log(`activeSponsors: ${activeSponsors}`);
+
   if (
     tokenSymbol !== null &&
     collSymbol !== null &&

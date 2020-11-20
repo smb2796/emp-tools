@@ -33,6 +33,10 @@ function _getBitstampPriceFromJSON(jsonData: any) {
 function _getEtherchainPriceFromJSON(jsonData: any) {
   return Number(jsonData.standard / 1000);
 }
+
+function _getUgasFromJSON(jsonData: any) {
+  return Number(jsonData.price / 1000000000000000000);
+}
 // This function returns a type predicate that we can use to filter prices from a (number | null)[] into a number[],
 // source: https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards
 function isValidPrice<Price>(value: Price | null): value is Price {
@@ -71,6 +75,10 @@ export const PRICEFEED_PARAMS: PricefeedParamsMap = {
     invertedPrice: false,
     source: ["https://etherchain.org/api/gasPriceOracle"],
   },
+  ugas: {
+    invertedPrice: false,
+    source: ["https://ugasdata.info/current-twap"],
+  },
 };
 
 export function getPricefeedParamsFromTokenSymbol(symbol: string | null) {
@@ -78,7 +86,6 @@ export function getPricefeedParamsFromTokenSymbol(symbol: string | null) {
   // In this case, whichever "case" expression evaluates to "true".
   // Source: https://stackoverflow.com/questions/4082204/javascript-conditional-switch-statement
 
-  console.log(`symbol: ${symbol}`);
   switch (true) {
     case symbol?.includes("yCOMP"):
       return PRICEFEED_PARAMS.compusd;
@@ -92,8 +99,10 @@ export function getPricefeedParamsFromTokenSymbol(symbol: string | null) {
       return PRICEFEED_PARAMS.usdeth;
     case symbol?.includes("yUSD"):
       return PRICEFEED_PARAMS.usdeth;
+    // case symbol?.includes("uGAS"):
+    //   return PRICEFEED_PARAMS.gaseth;
     case symbol?.includes("uGAS"):
-      return PRICEFEED_PARAMS.gaseth;
+      return PRICEFEED_PARAMS.ugas;
     default:
       return null;
   }
@@ -111,7 +120,6 @@ export function isPricefeedInvertedFromTokenSymbol(symbol: string | null) {
 
 export const getOffchainPriceFromTokenSymbol = async (symbol: string) => {
   let identifierParams = getPricefeedParamsFromTokenSymbol(symbol);
-  console.log(`identifierParams ${identifierParams}`);
   if (identifierParams === null) {
     console.error(
       `Missing identifier parameters for token with symbol ${symbol}`
@@ -135,6 +143,8 @@ export const getOffchainPriceFromTokenSymbol = async (symbol: string) => {
               return _getBitstampPriceFromJSON(json);
             case url.includes("etherchain"):
               return _getEtherchainPriceFromJSON(json);
+            case url.includes("ugasdata"):
+              return _getUgasFromJSON(json);
             default:
               return null;
           }

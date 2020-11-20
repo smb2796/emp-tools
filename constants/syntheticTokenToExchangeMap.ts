@@ -25,6 +25,7 @@ const TOKEN_TO_EXCHANGE_MAP: TokenExchangeMap = {
   ycomp: EXCHANGES.UNISWAP,
   ethbtc: EXCHANGES.UNISWAP,
   yusd: EXCHANGES.BALANCER,
+  ugas: EXCHANGES.UNISWAP,
 };
 
 // Maps exchange types to functions that can be used to retrieve the exchange's swap URL for a chosen token.
@@ -48,6 +49,8 @@ export const getExchangeTypeFromTokenSymbol = (symbol: string | null) => {
       return TOKEN_TO_EXCHANGE_MAP.yusd;
     case symbol?.includes("uUSD"):
       return TOKEN_TO_EXCHANGE_MAP.yusd;
+    case symbol?.includes("uGAS"):
+      return TOKEN_TO_EXCHANGE_MAP.ugas;
     default:
       return null;
   }
