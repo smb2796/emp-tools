@@ -67,7 +67,7 @@ const HistoricalGasPricesGraph = () => {
     return (
       <span>
         <Typography variant="h5" style={{ marginBottom: "10px" }}>
-          {symbol} Median Gas Price
+          Median Gas Price
         </Typography>
         {/* <Switch checked={switchState} onChange={handleSwitchChange} /> */}
         <Chart
