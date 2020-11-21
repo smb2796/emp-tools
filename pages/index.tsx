@@ -185,9 +185,15 @@ export default function Index() {
                 's most current financial smart contract template. The uGAS
                 token can be used for hedging or speculating on Ethereum gas
                 prices. This is an experimental token, please use at your own
-                risk. Please read the uGAS medium article for general
-                information and view the source code here. The source code can
-                be viewed{" "}
+                risk. Please read the uGAS medium{" "}
+                <a
+                  href="https://medium.com/uma-project/the-journey-towards-universal-market-access-94e627aff775"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  article
+                </a>{" "}
+                for general information. The source code can be viewed{" "}
                 <a
                   href="https://github.com/UMAprotocol/emp-tools"
                   target="_blank"
