@@ -187,7 +187,7 @@ export default function Index() {
                 prices. This is an experimental token, please use at your own
                 risk. Please read the uGAS medium{" "}
                 <a
-                  href="https://medium.com/@kevin-uma/9f51682778dd"
+                  href="https://medium.com/uma-project/ulabs-gas-futures-token-9f51682778dd"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
