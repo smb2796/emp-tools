@@ -48,7 +48,7 @@ const HistoricalGasPricesGraph = () => {
         yaxis: {
           categories: priceArray,
           title: {
-            text: "Median Gas Price",
+            text: "30-Day Median Gas Price",
             offsetY: -15,
           },
         },
@@ -58,7 +58,7 @@ const HistoricalGasPricesGraph = () => {
       },
       series: [
         {
-          name: "Median Gas Price over Time in ETH for 1M Units of Gas",
+          name: "Median Gas Price over 3 Days in ETH for 1M Units of Gas",
           data: priceArray,
         },
       ],
@@ -67,7 +67,7 @@ const HistoricalGasPricesGraph = () => {
     return (
       <span>
         <Typography variant="h5" style={{ marginBottom: "10px" }}>
-          Median Gas Price
+          30-Day Median Gas Price for the Last 3 Days
         </Typography>
         {/* <Switch checked={switchState} onChange={handleSwitchChange} /> */}
         <Chart

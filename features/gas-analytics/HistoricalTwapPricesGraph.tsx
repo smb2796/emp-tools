@@ -67,7 +67,7 @@ const HistoricalTwapPricesGraph = () => {
     return (
       <span>
         <Typography variant="h5" style={{ marginBottom: "10px" }}>
-          {symbol} 2-Hour Twap
+          {symbol} 2-Hour Twap for the Last 3 Days
         </Typography>
         {/* <Switch checked={switchState} onChange={handleSwitchChange} /> */}
         <Chart
