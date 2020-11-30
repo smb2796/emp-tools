@@ -84,9 +84,9 @@ export default function Index() {
       menuOptions = menuOptions.concat(["yUSD Yield", "Analytics"]);
     }
 
-    if (isGasToken) {
-      menuOptions = menuOptions.concat(["Gas Prices"]);
-    }
+    // if (isGasToken) {
+    //   menuOptions = menuOptions.concat(["Gas Prices"]);
+    // }
 
     // Update selected page if the user toggles between EMPs while selected on
     // invalid pages (i.e on Wrap/Unwrap then moves to uUSDrBTC).

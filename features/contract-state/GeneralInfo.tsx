@@ -183,6 +183,26 @@ const GeneralInfo = () => {
           <Label>Minimum sponsor tokens: </Label>
           {minSponsorTokensSymbol}
         </Status>
+        <Status>
+          <Label>30-Day Median Gas Prices Endpoint: </Label>
+          <Link
+            href="https://ugasdata.info/median-range"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            uGasData
+          </Link>
+        </Status>
+        <Status>
+          <Label>Historical TWAP Prices Endpoint: </Label>
+          <Link
+            href="https://ugasdata.info/twap-range"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            uGasData
+          </Link>
+        </Status>
       </Box>
     );
   }
