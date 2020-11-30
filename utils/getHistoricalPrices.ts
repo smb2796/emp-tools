@@ -26,11 +26,11 @@ function isValidPrice<Price>(value: Price | null): value is Price {
 export const PRICEFEED_PARAMS: PricefeedParamsMap = {
   twap: {
     invertedPrice: false,
-    source: ["https://ugasdata.info/twap"],
+    source: ["https://ugasdata.info/twap-range"],
   },
   gas: {
     invertedPrice: false,
-    source: ["https://ugasdata.info/median"],
+    source: ["https://ugasdata.info/median-range"],
   },
 };
 

@@ -187,7 +187,7 @@ export default function Index() {
                 prices. This is an experimental token, please use at your own
                 risk. Please read the uGAS medium{" "}
                 <a
-                  href="https://medium.com/uma-project/the-journey-towards-universal-market-access-94e627aff775"
+                  href="https://medium.com/@kevin-uma/9f51682778dd"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -195,7 +195,7 @@ export default function Index() {
                 </a>{" "}
                 for general information. The source code can be viewed{" "}
                 <a
-                  href="https://github.com/UMAprotocol/emp-tools"
+                  href="https://github.com/Kevin-UMA/emp-tools"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -226,7 +226,7 @@ export default function Index() {
         <IconButton
           style={{ marginRight: `8px` }}
           target="_blank"
-          href="https://github.com/UMAprotocol/emp-tools"
+          href="https://github.com/Kevin-UMA/emp-tools"
           size="medium"
         >
           <GitHubIcon fontSize="inherit" />
