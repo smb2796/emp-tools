@@ -37,6 +37,15 @@ function _getEtherchainPriceFromJSON(jsonData: any) {
 function _getUgasFromJSON(jsonData: any) {
   return Number(jsonData.price / 1000000000000000000);
 }
+function _getUgasFebFromJSON(jsonData: any) {
+  return Number(0.13);
+}
+function _getUgasMarFromJSON(jsonData: any) {
+  return Number(0.121);
+}
+function _getUstonksAprFromJSON(jsonData: any) {
+  return Number(213);
+}
 // This function returns a type predicate that we can use to filter prices from a (number | null)[] into a number[],
 // source: https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards
 function isValidPrice<Price>(value: Price | null): value is Price {
@@ -68,7 +77,7 @@ export const PRICEFEED_PARAMS: PricefeedParamsMap = {
     source: [
       "https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT",
       "https://api.pro.coinbase.com/products/BTC-USD/trades?limit=1",
-      "https://cors-anywhere.herokuapp.com/https://www.bitstamp.net/api/v2/ticker/btcusd",
+      "https://www.bitstamp.net/api/v2/ticker/btcusd",
     ],
   },
   gaseth: {
@@ -78,6 +87,18 @@ export const PRICEFEED_PARAMS: PricefeedParamsMap = {
   ugas: {
     invertedPrice: false,
     source: ["https://ugasdata.info/current-twap"],
+  },
+  ugasfeb: {
+    invertedPrice: false,
+    source: ["https://ugasdata.info/current-twap"],
+  },
+  ugasmar: {
+    invertedPrice: false,
+    source: ["https://ugasdata.info/current-twap"],
+  },
+  ustonks: {
+    invertedPrice: false,
+    source: ["https://api.pro.coinbase.com/products/COMP-USD/trades?limit=1"],
   },
 };
 
@@ -101,8 +122,14 @@ export function getPricefeedParamsFromTokenSymbol(symbol: string | null) {
       return PRICEFEED_PARAMS.usdeth;
     // case symbol?.includes("uGAS"):
     //   return PRICEFEED_PARAMS.gaseth;
-    case symbol?.includes("uGAS"):
+    case symbol?.includes("uGAS-JAN"):
       return PRICEFEED_PARAMS.ugas;
+    case symbol?.includes("uGAS-FEB"):
+      return PRICEFEED_PARAMS.ugas;
+    case symbol?.includes("uGAS-MAR"):
+      return PRICEFEED_PARAMS.ugas;
+    case symbol?.includes("uSTONKS-APR"):
+      return PRICEFEED_PARAMS.ustonks;
     default:
       return null;
   }
@@ -144,7 +171,9 @@ export const getOffchainPriceFromTokenSymbol = async (symbol: string) => {
             case url.includes("etherchain"):
               return _getEtherchainPriceFromJSON(json);
             case url.includes("ugasdata"):
-              return _getUgasFromJSON(json);
+              return _getUgasMarFromJSON(json);
+            case url.includes("ugasdata"):
+              return _getUstonksAprFromJSON(json);
             default:
               return null;
           }
